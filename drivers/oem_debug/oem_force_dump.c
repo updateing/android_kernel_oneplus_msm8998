@@ -25,7 +25,6 @@ static struct work_struct smg_work;
 
 #define MAX_MSGSIZE 1024
 static int message_state = 0;
-extern int  msm_serial_oem_init(void);
 
 void send_msg(char *message);
 /*
@@ -149,7 +148,6 @@ void oem_check_force_dump_key(unsigned int code, int value)
         }
         else if(code == KEY_VOLUMEDOWN && !value){
             printk(KERN_INFO "force oem serial\n");
-            msm_serial_oem_init();
             message_state=2;
             queue_work(smg_workwq, &smg_work);
             state = NONE;
