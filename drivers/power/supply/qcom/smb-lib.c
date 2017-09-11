@@ -607,10 +607,7 @@ static const struct apsd_result *smblib_update_usb_type(struct smb_charger *chg)
 	/* if PD is active, APSD is disabled so won't have a valid result */
 	if (chg->pd_active)
 		chg->usb_psy_desc.type = POWER_SUPPLY_TYPE_USB_PD;
-	if (chg->dash_on)
-		chg->usb_psy_desc.type = POWER_SUPPLY_TYPE_DASH;
-	else
-		chg->usb_psy_desc.type = apsd_result->pst;
+	chg->usb_psy_desc.type = apsd_result->pst;
 
 	smblib_dbg(chg, PR_MISC, "APSD=%s PD=%d\n",
 					apsd_result->name, chg->pd_active);
