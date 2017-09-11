@@ -5052,7 +5052,7 @@ static int set_dash_charger_present(int status)
 		g_chg->dash_present = status && charger_present;
 		if (g_chg->dash_present && !pre_dash_present) {
 			pr_err("set dash online\n");
-			g_chg->usb_psy_desc.type = POWER_SUPPLY_TYPE_DASH;
+			g_chg->usb_psy_desc.type = POWER_SUPPLY_TYPE_USB_DCP;
 			vote(g_chg->usb_icl_votable, PD_VOTER, true,
 					DEFAULT_WALL_CHG_MA * 1000);
 			set_spoof_usb_fastcharge();
