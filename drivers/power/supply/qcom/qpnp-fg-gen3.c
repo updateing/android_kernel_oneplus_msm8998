@@ -4273,10 +4273,12 @@ static struct fg_irq_info fg_irqs[FG_IRQ_MAX] = {
 	[MSOC_DELTA_IRQ] = {
 		.name		= "msoc-delta",
 		.handler	= fg_delta_msoc_irq_handler,
+		.wakeable	= true,
 	},
 	[BSOC_DELTA_IRQ] = {
 		.name		= "bsoc-delta",
 		.handler	= fg_delta_bsoc_irq_handler,
+		.wakeable	= true,
 	},
 	[SOC_READY_IRQ] = {
 		.name		= "soc-ready",
@@ -4291,6 +4293,7 @@ static struct fg_irq_info fg_irqs[FG_IRQ_MAX] = {
 	[BATT_TEMP_DELTA_IRQ] = {
 		.name		= "batt-temp-delta",
 		.handler	= fg_delta_batt_temp_irq_handler,
+		.wakeable	= true,
 	},
 	[BATT_MISSING_IRQ] = {
 		.name		= "batt-missing",
